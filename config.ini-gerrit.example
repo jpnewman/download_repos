@@ -1,0 +1,9 @@
+[gerrit]
+server = gerrit-server:29418
+
+[auth]
+username = <USERNAME>
+password = <PASSWORD>
+
+[local]
+repo_base_folder = .

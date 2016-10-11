@@ -1,0 +1,11 @@
+[github]
+org = <ORGANIZATION>
+github_token = <GITHUB_API_TOKEN>
+
+[auth]
+username = <USERNAME>
+password = <PASSWORD>
+two_factor_auth = True
+
+[local]
+repo_base_folder = .

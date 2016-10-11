@@ -1,0 +1,7 @@
+
+colorama
+argparse
+requests
+
+# Lint
+flake8
