@@ -1,6 +1,6 @@
 # DownloadRepos
 
-This script download GitHub organization repositories and is useful if you have lots of repos you would like to ```clone``` or ```pull --rebase```.
+This script downloads GitHub organization repositories and is useful if you have lots of repos you would like to ```clone``` or ```pull --rebase```.
 
 ## Install Python requirements
 
@@ -90,7 +90,7 @@ Only tested on Mac OS X
 
 ## Zsh function
 
-File ```./shell_profiles/.zshrc``` contains a function ```gitc``` that can be used to clone a git repo into folder structure (```<USERNAME>/<REPO_NAME>```) and then ```cd``` into it.
+File ```./shell_profiles/.zshrc``` contains a function called ```gitc``` that can be used to clone a git repo into folder structure (```<USERNAME>/<REPO_NAME>```) and then ```cd``` into it.
 
 *e.g.*
 
