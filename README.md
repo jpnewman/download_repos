@@ -2,19 +2,19 @@
 
 This script download GitHub organization repositories and is useful if you have lots of repos you would like to ```clone``` or ```pull --rebase```.
 
-# Install Python requirements
+## Install Python requirements
 
 ~~~bash
 pip install -r requirements.txt
 ~~~
 
-# Download repos
+## Download repos
 
 ~~~
 ./DownloadRepos.py ansible --verbose
 ~~~
 
-# Download previous repos
+## Download previous repos
 
 > No authenticate needed
 
@@ -22,7 +22,7 @@ pip install -r requirements.txt
 ./DownloadRepos.py ansible --repos-file config.json
 ~~~
 
-# Dry run
+## Dry run
 
 ~~~
 ./DownloadRepos.py ansible --dry-run
@@ -32,13 +32,13 @@ pip install -r requirements.txt
 ./DownloadRepos.py --repos-file config.json --dry-run
 ~~~
 
-# Update List Only
+## Update List Only
 
 ~~~
 ./DownloadRepos.py --update-list-only
 ~~~
 
-# Command Line Arguments
+## Command Line Arguments
 
 |Name|Description|Default Value|
 |---|---|---|
@@ -50,7 +50,7 @@ pip install -r requirements.txt
 |```--dry-run```|Dry-run. No repos are downloaded|False|
 |```--verbose```|Verbose output|False|
 
-# Configuration File (config.ini)
+## Configuration File (config.ini)
 
 Section ```[github]```
 
@@ -74,16 +74,34 @@ Section ```[local]```
 |repo\_base_folder|local repo base path|.|
 
 
-# Create GitHub Token
+## Create GitHub Token
 
 <https://help.github.com/articles/creating-an-access-token-for-command-line-use/>
 
-# Lint Script
+## Lint Script
 
 ~~~
 flake8 DownloadRepos.py
 ~~~
 
-# Tested
+## Tested
 
 Only tested on Mac OS X
+
+## Zsh function
+
+File ```./shell_profiles/.zshrc``` contains a function ```gitc``` that can be used to clone a git repo into folder structure (```<USERNAME>/<REPO_NAME>```) and then ```cd``` into it.
+
+*e.g.*
+
+~~~
+gitc git@github.com:jpnewman/download_repos.git
+~~~
+
+## License
+
+MIT / BSD
+
+## Author Information
+
+John Paul Newman
