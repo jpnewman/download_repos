@@ -14,7 +14,7 @@ function gitc() {
   fi
 
   command_line_args="$1"
-  repo_folder=$(sed 's/^.*:\/\///; s/github.com\///; s/\.git$//' <<< $command_line_args)
+  repo_folder=$(sed 's/^.*:\/\///; s/^.*@//; s/^github\.com[\/:]//; s/\.git$//' <<< $command_line_args)
 
   echo "$repo_folder"
 
