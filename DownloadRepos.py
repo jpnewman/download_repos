@@ -18,7 +18,7 @@ DEFAULT_LOCAL_REPO_FOLDER = '.'
 DEFAULT_GERRIT_PORT = 29418
 
 
-def run_command(cmd, path='.'):
+def run_command(cmd, path='.', stop_on_error=True):
     """
     Run Command
     """
@@ -32,7 +32,9 @@ def run_command(cmd, path='.'):
     process.communicate()
     exit_code = process.wait()
 
-    if exit_code != 0:
+    if exit_code == 128 and stop_on_error == False:
+        print(Fore.WHITE + Back.RED + 'ERROR: {0}'.format(exit_code))
+    elif exit_code != 0 or stop_on_error == True:
         raise Exception("ERROR: Command exited with code: {0:d}".format(exit_code))
 
 
@@ -170,7 +172,7 @@ def process_git_repos(selected_repos, args):
         print(Style.BRIGHT + repo_str)
 
         cmd = ''
-        if args.rebase:
+        if not args.dont_rebase:
             cmd = 'git pull --rebase'
 
         if not os.path.isdir(path):
@@ -178,7 +180,7 @@ def process_git_repos(selected_repos, args):
             cmd = "git clone {0:s}".format(repo['ssh_url'])
 
         if not args.dry_run:
-            run_command(cmd, path)
+            run_command(cmd, path, args.stop_on_error)
 
 
 def get_all_github_org_repos(args,
@@ -236,10 +238,14 @@ def parse_args():
                         action='store_true',
                         default=False,
                         help='Update JSON file')
-    parser.add_argument('--rebase',
+    parser.add_argument('--dont-rebase',
                         action='store_true',
-                        default=True,
-                        help='Pull rebase repos')
+                        default=False,
+                        help="Don't pull rebase repos")
+    parser.add_argument('--stop-on-error',
+                        action='store_true',
+                        default=False,
+                        help="Stop on error")
     parser.add_argument('--dry-run',
                         action='store_true',
                         default=False,

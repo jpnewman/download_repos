@@ -46,7 +46,8 @@ pip install -r requirements.txt
 |```--config-file```|Configuration file|config.ini|
 |```--repos-file```|Use previous JSON file||
 |```--update-list-only```|Update JSON file||
-|```--rebase```|Pull rebase repos|True|
+|```--dont-rebase```|Don't pull rebase repos|False|
+|```--stop-on-error```|Stop on error|False|
 |```--dry-run```|Dry-run. No repos are downloaded|False|
 |```--verbose```|Verbose output|False|
 
